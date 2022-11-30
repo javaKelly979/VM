@@ -1,8 +1,7 @@
-
 public interface VM {
-	void displayProducts();
+	void displayAllProducts();
 	void SelectProduct(int product);
 	void displayEnterCoinsMessage();
-	void enterCoins(int[] coins);
+	void enterCoinsUser(int[] coins);
 	void displayChangeMessage();
 }
