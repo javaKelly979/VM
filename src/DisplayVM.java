@@ -6,19 +6,18 @@ public class DisplayVM implements VM{
 	private CoinBundle change;
 
 	
-	public void displayProducts() {
+	public void displayAllProducts() {
 		 	System.out.println(" +++++++++++++++++++++++++++++++++++++++++++++");
 	        System.out.println("     WELCOME TO THE GRP-9 VENDING MACHINE           ");
 	        System.out.println(" +++++++++++++++++++++++++++++++++++++++++++++");
-	        System.out.println("            Products available:               ");
+	        System.out.println("            Products Available are:               ");
 	        System.out.println("                                              ");
 	        for(Product product: Product.values()){
-	            if(!Product.EMPTY.equals(product)) {
-	                System.out.println("     " + product.getId() + "  " + product.name() + " - Price: " + product.getPrice() + "   ");
-	            }
+	        System.out.println("     " + product.getId() + "  " + product.name() + " - Price:$ " + product.getValue() + "   ");
+	            
 	        }
 	        System.out.println("                                              ");
-	        System.out.println(" Please select your product: ");
+	        System.out.println(" Kindly, select your product: ");
 
 		
 	}
@@ -32,20 +31,20 @@ public class DisplayVM implements VM{
 	
 	public void displayEnterCoinsMessage() {
 		System.out.println(" Please enter coins as follows: ");
-        System.out.println(" num of 1 cents coins,num of 5 cents coins,num of 10 cents coins,num of 25 cents coins,num of 10 cents coins,num of 1 Dollar");
-        System.out.println("                                              ");
-        System.out.println(" Example: If you would like to enter 2 ten cents coins: 0,0,2,0,0");
-        System.out.println("Plese enter coins:");
+        System.out.println(" no. of 1 cents coins,no. of 5 cents coins,no. of 10 cents coins,no. of 25 cents coins,no. of 10 cents coins,no of $1 Dollar(100 Cents) ");
+        System.out.println("-------------------------****Example****-------------------------");
+        System.out.println("If you would like to enter 2 ten cents coins: 0,0,2,0,0");
+        System.out.println("Kindly, enter your coins:");
 		
 	}
 
 	
-	public void enterCoins(int[] coins) {
-		Calc calculator=new SimpleCalc();
+	public void enterCoinsUser(int[] coins) {
+		Calc calculator=new SimpleCalc(); // creating the calculator object 
 		Product product=Product.valueOf(this.selectedProduct);
-		int total=calculator.calculateTotal(new CoinBundle(coins));
+		int total=calculator.calculateEnteredCoinsTotal(new CoinBundle(coins));
 		
-		double x=total-product.getPrice();
+		double x=total-product.getValue();
 		int changeAmount=(int)x;
 		this.change=calculator.calcuateChange(changeAmount);
 	}
@@ -53,12 +52,12 @@ public class DisplayVM implements VM{
 	
 	public void displayChangeMessage() {
 	     	System.out.println("                                              ");
-	        System.out.println("Your change is :"+ change.getTotal()+"cents splitted as follows: ");
-	        System.out.println("    1 Dollar coins: "+ change.number100CentsCoins);
-	        System.out.println("    25 cents coins: "+ change.number25CentsCoins);
-	        System.out.println("    10 cents coins: "+ change.number10CentsCoins);
-	        System.out.println("    5 cents coins: "+ change.number5CentsCoins);
-	        System.out.println("    1 cents coins: "+ change.number1CentsCoins);
+	        System.out.println("Collect your total Change of $ :"+ change.getTotal()+"cents splitted as follows: ");
+	        System.out.println("    $1			  coins: "+ change.noOf100CentsCoins);
+	        System.out.println("    25    	cents coins: "+ change.noOf25CentsCoins);
+	        System.out.println("    10  	cents coins: "+ change.noOf10CentsCoins);
+	        System.out.println("    5 		cents coins: "+ change.noOf5CentsCoins);
+	        System.out.println("    1  		cents coins: "+ change.noOf1CentsCoins);
 
 	    }
 	

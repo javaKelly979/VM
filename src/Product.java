@@ -1,18 +1,18 @@
 
 
 public enum Product {
-	TAKIS(1,229),HERSHEY(2,149),WATER(3,129),BURGER(4,250),EMPTY(0,00);
+	TAKIS(1,229),HERSHEY(2,149),WATER(3,129),BURGER(4,250); // All the Products Mentioned here with ID and Value of it
 	private int id;
-	private int price;
-	Product(int id, int price){
+	private int value;
+	Product(int id, int value){
 		this.id=id;
-		this.price=price;
+		this.value=value;
 	}
 	public int getId() {
 		return this.id;
 	}
-	public int getPrice() {
-		return this.price;
+	public int getValue() {
+		return this.value;
 	}
 	public static Product valueOf(int productSelected) {
 		for(Product product:Product.values()) {

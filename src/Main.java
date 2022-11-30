@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        
+        Scanner scanner = new Scanner(System.in); //Console Input
+         // Calling all the methods from the interface VM whose methods are called in DisplayVM class
         VM vendingMachine = new DisplayVM();
-
-        vendingMachine.displayProducts();
+        // created the vendingMachine object 
+        vendingMachine.displayAllProducts();
 
         String selectedProduct = scanner.nextLine();
         
@@ -18,10 +18,11 @@ public class Main {
 
         vendingMachine.displayEnterCoinsMessage();
 
-        String userEnteredCoins = scanner.nextLine();
+        String userEnteredCoins = scanner.nextLine(); // taking the input as string and converting into 
         
+        //Converted string to array by calling parsing method from Coin Enum
         int[] enteredCoins = Coin.parseCoins(userEnteredCoins); 
-        vendingMachine.enterCoins(enteredCoins);
+        vendingMachine.enterCoinsUser(enteredCoins);
 
         vendingMachine.displayChangeMessage();
 

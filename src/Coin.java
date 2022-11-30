@@ -8,11 +8,11 @@ public enum Coin {
 		 return this.value;
 	 }
 	 public static int[] parseCoins(String coins) {
-		 String[] numberCoinsInText=coins.split(",");
-		 int[] result = new int[numberCoinsInText.length];
+		 String[] coinsInText=coins.split(",");
+		 int[] result = new int[coinsInText.length];
 		 
-		 for(int index=0;index<numberCoinsInText.length;index++) {
-			 result[index]=Integer.parseInt(numberCoinsInText[index]);
+		 for(int index=0;index<coinsInText.length;index++) {
+			 result[index]=Integer.parseInt(coinsInText[index]);
 		 }
 		 return result;
 	 }
